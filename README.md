@@ -19,6 +19,7 @@ new PrettyPrinter(PrettyConfig.Default).PrintJson(myData);
 - Can set the indenting.
 - Can set the number of decimals to Round off display numbers to.
 - Super light memory footprint. Based on fast forward Utf8JsonReader. Does not load whole file into memory. Can PrettyPrint gigabyte Json files!
+- Configuration is `per printer`, and not global.
 
 
 
