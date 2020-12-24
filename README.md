@@ -12,7 +12,7 @@ new PrettyPrinter(PrettyConfig.Default).PrintJson(myData);
 
 ```
 
-- Automatically detects dark or light backgrounds and uses a suitable default light or dark theme.
+- Automatically detects dark or light backgrounds and uses a suitable default light or dark theme based on current Console background color.
 - No external dependancies, uses System.Text.Json from .net core. Can be overridden to use your own serializer.
 - Configurable themes for light or dark backgrounds.
 - Configurable serializer.
