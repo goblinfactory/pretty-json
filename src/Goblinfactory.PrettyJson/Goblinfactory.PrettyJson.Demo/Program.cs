@@ -15,9 +15,6 @@ namespace Goblinfactory.PrettyJson.Demo
             ReadLine();
 
             Clear();
-            printer.Config.EasyRead = true;
-            printer.PrintJson(data);
-            ReadLine();
 
             printer.Config.EasyRead = false;
 
@@ -32,7 +29,7 @@ namespace Goblinfactory.PrettyJson.Demo
 
             // print all URLs in Yellow
             printer.Config.DarkStyle.ColorsForProps["url"] = Yellow;
-            printer.Print(new
+            var quizz = new
             {
                         q1 = new
                         {
@@ -49,18 +46,37 @@ namespace Goblinfactory.PrettyJson.Demo
                                 name = "Evening Standard"
                             }
                         }
-            });
-
+            };
+            printer.Print(quizz);
             ReadLine();
 
             Clear();
 
             // useful Dump extensions, note the correct conversion of enums to integers!
-            printer.Config.DarkStyle.Dump();
+            var dark = printer.Config.DarkStyle;
+                
+            dark.Dump();
             ReadLine();
+            WriteLine();
 
             new { Hat = "Large", Cat = "Zeus" }.Dump();
             ReadLine();
+            WriteLine();
+            // easy read mode, sample below shows dumping using a particular printers configuration
+
+            printer.Config.EasyRead = true;
+            new { Hat = "Large", Cat = "Zeus" }.Dump(printer.Config);
+            ReadLine();
+            WriteLine();
+
+            // use a specific width to match the width of the items being dumped
+            printer.Config.EasyReadPropWidth = 20;
+            dark.Dump(printer.Config);
+
+            // end of demo
+            ReadLine();
+            WriteLine();
+            WriteLine("end of demo");
         }
 
         // attribution
