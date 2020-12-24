@@ -45,26 +45,26 @@ new PrettyPrinter(config).PrintJson(myData);
 
 ## Style a value based on it's property name
 
-```
-            printer.Config.DarkStyle.ColorsForProps["url"] = Yellow;
-            printer.Print(new
+```csharp
+printer.Config.DarkStyle.ColorsForProps["url"] = Yellow;
+printer.Print(new
+{
+            q1 = new
             {
-                        q1 = new
-                        {
-                            question = "What is the best JazzClub in London?",
-                            options = new[] { "Vortex", "Ronnie Scott", "Pizza Express Jazz Club", "Kansas Smitty’s", "Buster Mantis", "Dalston Jazz Bar" }
-                        },
-                        answer = new
-                        {
-                            name = "Ronnie Scott",
-                            description = "As one of the world’s oldest jazz bars, Ronnie Scott’s in Soho has hosted Sarah Vaughan, Count Basie and Miles Davis...",
-                            attribution = new
-                            {
-                                url = "https://www.standard.co.uk/culture/music/best-jazz-bars-and-clubs-in-london-a3843231.htmlhttps://www.standard.co.uk/culture/music/best-jazz-bars-and-clubs-in-london-a3843231.html",
-                                name = "Evening Standard"
-                            }
-                        }
-            });
+                question = "What is the best JazzClub in London?",
+                options = new[] { "Vortex", "Ronnie Scott", "Pizza Express Jazz Club", "Kansas Smitty’s", "Buster Mantis", "Dalston Jazz Bar" }
+            },
+            answer = new
+            {
+                name = "Ronnie Scott",
+                description = "As one of the world’s oldest jazz bars, Ronnie Scott’s in Soho has hosted Sarah Vaughan, Count Basie and Miles Davis...",
+                attribution = new
+                {
+                    url = "https://www.standard.co.uk/culture/music/best-jazz-bars-and-clubs-in-london-a3843231.htmlhttps://www.standard.co.uk/culture/music/best-jazz-bars-and-clubs-in-london-a3843231.html",
+                    name = "Evening Standard"
+                }
+            }
+});
 ```
 
 gives you ...
