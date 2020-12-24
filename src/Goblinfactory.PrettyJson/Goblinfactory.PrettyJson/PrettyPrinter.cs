@@ -1,7 +1,6 @@
 ﻿using System;
 using static System.Console;
 using System.Text.Json;
-using static System.ConsoleColor;
 using System.Text;
 using Goblinfactory.PrettyJson.Internal;
 
@@ -10,21 +9,10 @@ namespace Goblinfactory.PrettyJson
 
     public class PrettyPrinter
     {
-
-        //private readonly IPrettyStyle Config.LightStyle;
-        //private readonly IPrettyStyle Config.DarkStyle;
-        //private readonly IPrettyJsonSerializer Config.Serializer;
-        //private int Config.IndentWidth;
-        //private int Config.NumberOfDecimals;
         private int _indent = 0;
         public PrettyPrinter(IPrettyConfig config)
         {
             Config = config;
-            //Config.LightStyle = config.LightStyle;
-            //Config.DarkStyle = config.DarkStyle;
-            //Config.Serializer = config.Serializer;
-            //Config.IndentWidth = config.IndentWidth;
-            //Config.NumberOfDecimals = config.NumberOfDecimals;
         }
 
         public IPrettyConfig Config { get; set; }
@@ -210,7 +198,5 @@ namespace Goblinfactory.PrettyJson
                 last = token;
             }
         }
-
-
     }
 }
