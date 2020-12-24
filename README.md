@@ -23,14 +23,7 @@ new PrettyPrinter(PrettyConfig.CreateDefault()).PrintJson(myData);
 - Useful `.Dump()` extensions for objects and strings that will dump the object or json to console.
 - Configurable styling based on property name.
 
-## Great for dumping anonymous types
-
-```csharp
-
-var player = new 
-
-
-```
+![dark background theme](docs/dark-background-style.PNG)
 
 ## Easy Configuration
 
@@ -50,13 +43,41 @@ new PrettyPrinter(config).PrintJson(myData);
 
 ```
 
+## Style a value based on it's property name
+
+```
+            printer.Config.DarkStyle.ColorsForProps["url"] = Yellow;
+            printer.Print(new
+            {
+                        q1 = new
+                        {
+                            question = "What is the best JazzClub in London?",
+                            options = new[] { "Vortex", "Ronnie Scott", "Pizza Express Jazz Club", "Kansas Smitty’s", "Buster Mantis", "Dalston Jazz Bar" }
+                        },
+                        answer = new
+                        {
+                            name = "Ronnie Scott",
+                            description = "As one of the world’s oldest jazz bars, Ronnie Scott’s in Soho has hosted Sarah Vaughan, Count Basie and Miles Davis...",
+                            attribution = new
+                            {
+                                url = "https://www.standard.co.uk/culture/music/best-jazz-bars-and-clubs-in-london-a3843231.htmlhttps://www.standard.co.uk/culture/music/best-jazz-bars-and-clubs-in-london-a3843231.html",
+                                name = "Evening Standard"
+                            }
+                        }
+            });
+```
+
+gives you ...
+
+![dark background theme](docs/style-per-propname.PNG)
+
 ## Super useful `.Dump()` extentions
 
 ```
-
-
+	printer.Config.DarkStyle.Dump();
+	new { Hat = "Large", Cat = "Zeus"}.Dump();
 ```
-
+![dark background theme](docs/useful-dump-extensions.PNG)
 
 ## Limitations and final thoughts
 
@@ -64,3 +85,4 @@ new PrettyPrinter(config).PrintJson(myData);
 - See `StringExtensions.cs` for the string encoding.
 - If you need additional encodings, please submit a PR for me to review and if it makes sense, or extend the configuration to configure diffrerent types of encoding if needed.
 - This is a very small project, feel free to fork it and make your own variant. It could easily be entirely encapsulated in a single file.
+- todo: provide an easyread format, which excludes commas and quotes with field padding to align property values. Similar to Yaml formatting.

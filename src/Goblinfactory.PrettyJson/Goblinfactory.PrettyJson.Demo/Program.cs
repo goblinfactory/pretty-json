@@ -46,6 +46,15 @@ namespace Goblinfactory.PrettyJson.Demo
             });
 
             ReadLine();
+
+            Clear();
+
+            // useful Dump extensions, note the correct conversion of enums to integers!
+            printer.Config.DarkStyle.Dump();
+            ReadLine();
+
+            new { Hat = "Large", Cat = "Zeus" }.Dump();
+            ReadLine();
         }
 
         // attribution
