@@ -46,6 +46,9 @@ namespace Goblinfactory.PrettyJson
 
         public IPrettyStyle LightStyle { get; set; } = PrettyStyle.LightStyle;
         public IPrettyStyle DarkStyle { get; set; } = PrettyStyle.DarkStyle;
-        
+
+        public bool EasyRead { get; set; } = false;
+        public int EasyReadPropWidth { get; set; } = 10;
+
     }
 }

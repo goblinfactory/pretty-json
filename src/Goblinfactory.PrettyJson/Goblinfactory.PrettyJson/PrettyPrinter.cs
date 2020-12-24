@@ -59,17 +59,19 @@ namespace Goblinfactory.PrettyJson
             }
         }
 
-        void addCommaIfneeded(JsonTokenType? last, JsonTokenType next, IPrettyStyle style)
+        void addCommaIfneeded(JsonTokenType? last, JsonTokenType next, IPrettyStyle style, bool easyRead)
         {
+            var comma = easyRead ? "" : ",";
             ForegroundColor = style.Quotes;
-            if (isValueProperty(last) && isValueProperty(next)) { WriteLine(","); return; }
             if (last == JsonTokenType.StartArray) return;
             if (last == JsonTokenType.PropertyName) return;
-            if (last == JsonTokenType.StartObject && next == JsonTokenType.PropertyName) return;
-            if (last == JsonTokenType.EndObject && next == JsonTokenType.PropertyName) { WriteLine(","); return; };
             if (last == null) return;
-            if (next == JsonTokenType.PropertyName && isValueProperty(last)) { WriteLine(","); return; }
-            if (last == JsonTokenType.PropertyName && isValueProperty(next)) { WriteLine(","); return; }
+
+            if (last == JsonTokenType.StartObject && next == JsonTokenType.PropertyName) return;
+            if (isValueProperty(last) && isValueProperty(next)) { WriteLine(comma); return; }
+            if (last == JsonTokenType.EndObject && next == JsonTokenType.PropertyName) { WriteLine(comma); return; };
+            if (next == JsonTokenType.PropertyName && isValueProperty(last)) { WriteLine(comma); return; }
+            if (last == JsonTokenType.PropertyName && isValueProperty(next)) { WriteLine(comma); return; }
             WriteLine();
         }
 
@@ -122,7 +124,7 @@ namespace Goblinfactory.PrettyJson
             {
                 var token = reader.TokenType;
 
-                addCommaIfneeded(last, token, style);
+                addCommaIfneeded(last, token, style, Config.EasyRead);
                 switch (token)
                 {
                     case JsonTokenType.StartObject:
@@ -149,13 +151,25 @@ namespace Goblinfactory.PrettyJson
                         break;
                     case JsonTokenType.PropertyName:
                         ForegroundColor = style.Quotes;
-                        printWithMargin("\"");
+                        if(Config.EasyRead) 
+                            printWithMargin("");
+                        else
+                            printWithMargin("\"");
                         ForegroundColor = style.PropertyNames;
-                        var name = reader.GetString();
+                        var name = Config.EasyRead ? $"{reader.GetString()}:" : $"{reader.GetString()}"; ;
                         propName = name;
-                        Write($"{name}");
+                        if(Config.EasyRead)
+                        {
+                            var format = string.Format("{{0,{0}}}", Config.EasyReadPropWidth);
+                            Write(format, name);
+                        }
+                        else
+                            Write($"{name}");
                         ForegroundColor = style.Quotes;
-                        Write("\": ");
+                        if(Config.EasyRead)
+                            Write(" ");
+                        else
+                            Write("\": ");
                         break;
                     case JsonTokenType.Null:
                         ForegroundColor = style.Nulls;
@@ -174,11 +188,21 @@ namespace Goblinfactory.PrettyJson
                         break;
                     case JsonTokenType.String:
                         ForegroundColor = style.Quotes;
-                        if (isArray) printWithMargin("\""); else Write("\"");
-                        ForegroundColor = GetStringColor(style, propName);
-                        Write(reader.GetString().ToJsonEncode());
-                        ForegroundColor = style.Quotes;
-                        Write("\"");
+                        if(Config.EasyRead)
+                        {
+                            if (isArray) printWithMargin(""); 
+                            ForegroundColor = GetStringColor(style, propName);
+                            Write(reader.GetString().ToJsonEncode());
+                            ForegroundColor = style.Quotes;
+                        }
+                        else
+                        {
+                            if (isArray) printWithMargin("\""); else Write("\"");
+                            ForegroundColor = GetStringColor(style, propName);
+                            Write(reader.GetString().ToJsonEncode());
+                            ForegroundColor = style.Quotes;
+                            Write("\"");
+                        }
                         break;
                     default:
                         break;

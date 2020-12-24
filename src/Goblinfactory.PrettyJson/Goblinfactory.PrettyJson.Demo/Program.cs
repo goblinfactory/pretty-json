@@ -12,10 +12,16 @@ namespace Goblinfactory.PrettyJson.Demo
 
             var printer = new PrettyPrinter(PrettyConfig.CreateDefault());
             printer.PrintJson(data);
-
-            // change background to white, pretty printer will use a white background style
             ReadLine();
 
+            Clear();
+            printer.Config.EasyRead = true;
+            printer.PrintJson(data);
+            ReadLine();
+
+            printer.Config.EasyRead = false;
+
+            // change background to white, pretty printer will use a white background style
             BackgroundColor = White;
             Clear();
             printer.PrintJson(data);

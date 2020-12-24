@@ -91,6 +91,13 @@ gives you ...
 ```
 ![dark background theme](docs/useful-dump-extensions.PNG)
 
+## EasyRead mode 
+
+Easyread removes all the quotes and formats the property names with a default 10 character width. (configurable)
+
+![easy read setting](docs/easy-read.PNG)
+
+
 ## Limitations and final thoughts
 
 - Does not do any encoding other than replace \ with \\\\, and " with \\"
