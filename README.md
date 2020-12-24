@@ -105,7 +105,7 @@ printer.PrintJson(data);
 
 ## Limitations and final thoughts
 
-<img align="left" width="175" src="docs/easy-read-2.PNG">
+<img align="left" width="225" style="padding-right:5px" src="docs/easy-read-2.PNG">
 
 - Does not do any encoding other than replace \ with \\\\, and " with \\"
 - See `StringExtensions.cs` for the string encoding.
