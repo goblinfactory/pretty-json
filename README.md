@@ -25,6 +25,12 @@ new PrettyPrinter(PrettyConfig.CreateDefault()).PrintJson(myData);
 
 ![dark background theme](docs/dark-background-style.PNG)
 
+## Automatically detect dark and light background
+
+Automatically uses a suitable theme for Light or Dark backgrounds. Totally customisable.
+
+![dark background theme](docs/light-background-style.PNG)
+
 ## Easy Configuration
 
 ```csharp
