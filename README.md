@@ -8,7 +8,7 @@ Cross platform .net core Pretty print Json files to console.
 
 using Goblinfactory.PrettyJson;
 
-new PrettyPrinter(PrettyConfig.Default).PrintJson(myData);
+new PrettyPrinter(PrettyConfig.CreateDefault()).PrintJson(myData);
 
 ```
 
@@ -30,7 +30,7 @@ new PrettyPrinter(PrettyConfig.Default).PrintJson(myData);
 using Goblinfactory.PrettyJson;
 using static System.ConsoleColor;
 
-var config = PrettyConfig.Default;
+var config = PrettyConfig.CreateDefault();
 
 config.LightStyle.Nulls = Red;
 config.DarkStyle.Nulls = Red;
