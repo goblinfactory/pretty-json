@@ -95,6 +95,11 @@ gives you ...
 
 Easyread removes all the quotes and formats the property names with a default 10 character width. (configurable)
 
+```csharp
+ printer.Config.EasyRead = true;
+printer.PrintJson(data);
+```
+
 ![easy read setting](docs/easy-read.PNG)
 
 
