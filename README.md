@@ -7,6 +7,7 @@ Cross platform .net core Pretty print Json files to console.
 ```csharp
 
 using Goblinfactory.PrettyJson;
+
 new PrettyPrinter(PrettyConfig.Default).PrintJson(myData);
 
 ```
