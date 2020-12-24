@@ -93,7 +93,7 @@ gives you ...
 
 ## Limitations and final thoughts
 
-- Does not do any encoding other than replace \ with \\\\, and " with \"
+- Does not do any encoding other than replace \ with \\\\, and " with \\"
 - See `StringExtensions.cs` for the string encoding.
 - If you need additional encodings, please submit a PR for me to review and if it makes sense, or extend the configuration to configure diffrerent types of encoding if needed.
 - This is a very small project, feel free to fork it and make your own variant. It could easily be entirely encapsulated in a single file.
