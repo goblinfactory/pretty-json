@@ -6,6 +6,13 @@
     <Description>Cross platform .net core Pretty print Json files to console.</Description>
     <Copyright>Goblinfactory Ltd (C) 2020</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>console, prettyPrint, json</PackageTags>
+    <PackageProjectUrl>https://github.com/goblinfactory/pretty-json</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/goblinfactory/pretty-json</RepositoryUrl>
+    <RepositoryType>GIT</RepositoryType>
+    <Title>Goblinfactory.PrettyJson</Title>
+    <RepositoryTitle>Goblinfactory.PrettyJson</RepositoryTitle>
   </PropertyGroup>
 
 </Project>

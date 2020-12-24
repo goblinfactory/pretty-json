@@ -4,6 +4,12 @@ Cross platform .net core Pretty print Json files to console.
 
 ## 1 liner Usage
 
+Install package
+
+> dotnet add package Goblinfactory.PrettyJson
+
+Usage
+
 ```csharp
 
 using Goblinfactory.PrettyJson;
