@@ -91,7 +91,7 @@ gives you ...
 ```
 ![dark background theme](docs/useful-dump-extensions.PNG)
 
-## EasyRead mode 
+## EasyRead mode (availabe in version 0.2 onwards)
 
 Easyread removes all the quotes and formats the property names with a default 10 character width. (configurable)
 
