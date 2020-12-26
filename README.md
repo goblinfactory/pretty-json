@@ -28,8 +28,9 @@ new PrettyPrinter(PrettyConfig.CreateDefault()).PrintJson(myData);
 - Configuration is `per printer`, and not global.
 - Useful `.Dump()` extensions for objects and strings that will dump the object or json to console.
 - Configurable styling based on property name.
+- Automatic clipping of strings longer than 200 characters. (Configurable in Config.)
 
-![dark background theme](docs/dark-background-style.PNG)
+![dark background theme](docs/dark-background-style2.PNG)
 
 ## Automatically detect dark and light background
 
@@ -101,7 +102,6 @@ printer.PrintJson(data);
 ```
 
 ![easy read setting](docs/easy-read.PNG)
-
 
 ## Limitations and final thoughts
 

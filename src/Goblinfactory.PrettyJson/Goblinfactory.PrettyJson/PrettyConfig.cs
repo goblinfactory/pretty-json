@@ -38,17 +38,20 @@ namespace Goblinfactory.PrettyJson
         // if you override the default serializer please remember to ensure that the json
         // is pretty printed, ie indented, not single line.
         public IPrettyJsonSerializer Serializer { get; set; } = new DefaultMicrosoftSerializer();
-
-        public static PrettyConfig CreateDefault()
-        {
-            return new PrettyConfig();
-        }
-
         public IPrettyStyle LightStyle { get; set; } = PrettyStyle.LightStyle;
         public IPrettyStyle DarkStyle { get; set; } = PrettyStyle.DarkStyle;
 
         public bool EasyRead { get; set; } = false;
         public int EasyReadPropWidth { get; set; } = 10;
 
+        /// <summary>
+        /// set to null to disable clipping of strings.
+        /// </summary>
+        public int? ClipStringMaxLen { get; set; } = 200;
+
+        public static PrettyConfig CreateDefault()
+        {
+            return new PrettyConfig();
+        }
     }
 }

@@ -180,14 +180,14 @@ namespace Goblinfactory.PrettyJson
                         {
                             if (isArray) printWithMargin(""); 
                             ForegroundColor = GetStringColor(style, propName);
-                            Write(reader.GetString().ToJsonEncode());
+                            Write(reader.GetString().ToJsonEncode(Config));
                             ForegroundColor = style.Quotes;
                         }
                         else
                         {
                             if (isArray) printWithMargin("\""); else Write("\"");
                             ForegroundColor = GetStringColor(style, propName);
-                            Write(reader.GetString().ToJsonEncode());
+                            Write(reader.GetString().ToJsonEncode(Config));
                             ForegroundColor = style.Quotes;
                             Write("\"");
                         }

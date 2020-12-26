@@ -21,7 +21,11 @@ namespace Goblinfactory.PrettyJson.Demo
             // change background to white, pretty printer will use a white background style
             BackgroundColor = White;
             Clear();
+
+            // disable clipping
+            printer.Config.ClipStringMaxLen = null;
             printer.PrintJson(data);
+
             ReadLine();
 
             BackgroundColor = Black;
@@ -85,12 +89,22 @@ namespace Goblinfactory.PrettyJson.Demo
         {
             return new
             {
-                someObject = new
+                demo_object = new
                 {
-                    name = "example  " + '\\' + " " + '"' + "quoted" + '"' + " / 'text'",
+                    LongTextFieldWithQuotesAndSlashes = "quotes string example  " + '\\' + " " + '"' + "hasquotes" + '"' + " / 'text'",
                     data = new
                     {
                         shortString = "S",
+                        longString = 
+@" I'm not wearing hockey pads. No guns, no killing. Does it come in black?
+
+It's not who I am underneath but what I do that defines me.
+
+Accomplice ? I'm gonna tell them the whole thing was your idea. The first time I stole so that I wouldn't starve,
+yes.I lost many assumptions about the simple nature of right and wrong.And when I traveled I learned the fear before a crime and the thrill of success.But I never became one of them.
+
+I seek the means to fight injustice.To turn fear against those who prey on the fearful.It's ends here. The first time I stole so that I wouldn't starve,
+yes.I lost many assumptions about the simple nature of right and wrong.And when I traveled I learned the fear before a crime and the thrill of success.But I never became one of them.",
                         nested = new
                         {
                             nested = new
